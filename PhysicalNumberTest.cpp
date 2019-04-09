@@ -23,6 +23,34 @@ int main() {
     PhysicalNumber b(300, Unit::M);
     PhysicalNumber c(2, Unit::HOUR);
     PhysicalNumber d(30, Unit::MIN);
+    PhysicalNumber check1(2, Unit::HOUR);
+    PhysicalNumber check2(14, Unit::MIN);
+    PhysicalNumber check3(32, Unit::SEC);
+    PhysicalNumber check4(43, Unit::MIN);
+    PhysicalNumber check5(4, Unit::HOUR);
+    PhysicalNumber check6(28, Unit::SEC);
+    PhysicalNumber check7(120, Unit::SEC);
+    PhysicalNumber check8(0, Unit::HOUR);
+    PhysicalNumber check9(0, Unit::SEC);
+        PhysicalNumber check10(5, Unit::KM);
+    PhysicalNumber check11(10, Unit::M);
+    PhysicalNumber check12(300, Unit::CM);
+    PhysicalNumber check13(25, Unit::KM);
+    PhysicalNumber check14(1000, Unit::CM);
+    PhysicalNumber check15(4000, Unit::M);
+    PhysicalNumber check16(3, Unit::KM);
+    PhysicalNumber check17(3000, Unit::M);
+    PhysicalNumber check18(300000, Unit::CM);
+    PhysicalNumber a1(6, Unit::TON);
+    PhysicalNumber a2(6000, Unit::KG);
+    PhysicalNumber b1(30, Unit::KG);
+    PhysicalNumber b2(3000, Unit::KG);
+    PhysicalNumber b3(30000, Unit::KG);
+    PhysicalNumber b4(1, Unit::KG);
+    PhysicalNumber c1(2, Unit::G);
+    PhysicalNumber c2(0.002, Unit::KG);
+    PhysicalNumber c3(1000, Unit::G);
+    PhysicalNumber d1(30, Unit::MIN);
 
     testcase
     .setname("Basic output")
@@ -54,18 +82,6 @@ int main() {
 
 
      .setname("check time unit") 
-
-    PhysicalNumber check1(2, Unit::HOUR);
-    PhysicalNumber check2(14, Unit::MIN);
-    PhysicalNumber check3(32, Unit::SEC);
-    PhysicalNumber check4(43, Unit::MIN);
-    PhysicalNumber check5(4, Unit::HOUR);
-    PhysicalNumber check6(28, Unit::SEC);
-    PhysicalNumber check7(120, Unit::SEC);
-    PhysicalNumber check8(0, Unit::HOUR);
-    PhysicalNumber check9(0, Unit::SEC);
-
-
     .CHECK_OUTPUT(check6+check3, "60[sec]")
      .CHECK_EQUAL(check1==check7,true)
     .CHECK_OUTPUT((check1+=check2), "2.233333333[hour]")
@@ -77,7 +93,7 @@ int main() {
     .CHECK_OUTPUT(check8+check7, "2[hour]")
     .CHECK_OUTPUT(check7-check8, "120[sec]")
     .CHECK_OUTPUT(check5-check8, "4[hour]")
-    .CHECK_OUTPUT(++check, "5[hour]")
+    .CHECK_OUTPUT(++check1, "5[hour]")
     .CHECK_OUTPUT(check5, "5[hour]")
     .CHECK_OUTPUT(--check7, "119[sec]")
     .CHECK_OUTPUT(check7, "119[sec]")
@@ -94,15 +110,7 @@ int main() {
     .CHECK_THROWS(b+check3)
 
   .setname("check length unit")
-    PhysicalNumber check10(5, Unit::KM);
-    PhysicalNumber check11(10, Unit::M);
-    PhysicalNumber check12(300, Unit::CM);
-    PhysicalNumber check13(25, Unit::KM);
-    PhysicalNumber check14(1000, Unit::CM);
-    PhysicalNumber check15(4000, Unit::M);
-    PhysicalNumber check16(3, Unit::KM);
-    PhysicalNumber check17(3000, Unit::M);
-    PhysicalNumber check18(300000, Unit::CM);
+
 
 
     .CHECK_EQUAL(check16==check17,true)
@@ -138,16 +146,7 @@ int main() {
     .CHECK_OUTPUT(check11-check14, "0[m]")
 
 
-    PhysicalNumber a1(6, Unit::TON);
-    PhysicalNumber a2(6000, Unit::KG);
-    PhysicalNumber b1(30, Unit::KG);
-    PhysicalNumber b2(3000, Unit::KG);
-    PhysicalNumber b3(30000, Unit::KG);
-    PhysicalNumber b4(1, Unit::KG);
-    PhysicalNumber c1(2, Unit::G);
-    PhysicalNumber c2(0.002, Unit::KG);
-    PhysicalNumber c3(1000, Unit::G);
-    PhysicalNumber d1(30, Unit::MIN);
+    
 
     .setname("check Weight unit")
     .CHECK_OUTPUT(a1, "6[ton]")
@@ -180,6 +179,7 @@ int main() {
     .CHECK_OUTPUT(b2,"3[kg]")
     .CHECK_EQUAL(PhysicalNumber(5,Unit::TON)==PhysicalNumber(5000,Unit::KG), false)
 
+
     .setname("check exeptions")
     .CHECK_THROWS(PhysicalNumber(220,Unit::TON)+PhysicalNumber(2.4,Unit::HOUR))
     .CHECK_THROWS(a+c)
@@ -193,13 +193,13 @@ int main() {
     .CHECK_THROWS(d1=PhysicalNumber(2.4,Unit::TON))
     .CHECK_THROWS(PhysicalNumber(2,Unit::CM)=PhysicalNumber(2.4,Unit::SEC))
     .CHECK_THROWS(c+a2)
-    
-      .print(cout, /show_grade=/false);
+
+      .print(cout, /*show_grade=*/false);
       grade = testcase.grade();
     } else {
       testcase.print_signal(signal);
       grade = 0;
     }
-    cout <<  "* Grade: " << grade << " *" << endl;
-    return grade;
+    cout <<  "*** Grade: " << grade << " ***" << endl;
+return grade;
 }
