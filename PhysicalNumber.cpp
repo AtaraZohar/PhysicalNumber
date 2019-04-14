@@ -297,28 +297,17 @@ PhysicalNumber& PhysicalNumber::operator-- (){
       return *this;
 }
 
-PhysicalNumber& PhysicalNumber::operator++ (){
-    this->setValue(this->value+1);
-    return *this;
-}
-PhysicalNumber& PhysicalNumber::operator-- (){
-    this->setValue(this->value-1);
-      return *this;
-}
-
-    const PhysicalNumber PhysicalNumber::operator++(int i) {
+PhysicalNumber PhysicalNumber::operator++(int i) {
         PhysicalNumber copy = *this;
         value++;
         return copy;
-    }
+}
 
-        const PhysicalNumber PhysicalNumber::operator--(int i) {
+PhysicalNumber PhysicalNumber::operator--(int i) {
         PhysicalNumber copy = *this;
         value--;
         return copy;
-    }
-
-
+}
 
 
 //friends functions
