@@ -57,6 +57,8 @@ const bool operator!= (const PhysicalNumber& Pn) const;
 //prefix
 PhysicalNumber& operator++ ();
 PhysicalNumber& operator-- ();
+const PhysicalNumber operator++(int i);
+const PhysicalNumber operator--(int i);
 
 //friends functions
 friend ostream& operator<< (ostream& os, const PhysicalNumber& Pn);
