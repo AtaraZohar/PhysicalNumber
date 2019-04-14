@@ -118,7 +118,7 @@ double PhysicalNumber::weightConvert( Unit u1, const PhysicalNumber Pn)const {
 const PhysicalNumber PhysicalNumber::operator+ (const PhysicalNumber& Pn) const{
     if( ifMatch(this->u, Pn.u) == true){
          if((int)(this->u) !=(int)( Pn.u)) {
-             return PhysicalNumber(this->value + unitCast(this->u, Pn),this->u);
+             return PhysicalNumber(this->value + (double)unitCast(this->u, Pn),this->u);
          }
            else{
              return PhysicalNumber(this->value +Pn.value,this->u);
@@ -131,7 +131,7 @@ const PhysicalNumber PhysicalNumber::operator+ (const PhysicalNumber& Pn) const{
 const PhysicalNumber PhysicalNumber::operator- (const PhysicalNumber& Pn) const{
     if(ifMatch(this->u, Pn.u) == true){
          if((int)(this->u) != (int)(Pn.u)) {
-             return PhysicalNumber(this->value - unitCast(this->u, Pn),this->u);
+             return PhysicalNumber(this->value - (double)unitCast(this->u, Pn),this->u);
          }
          else{
              return PhysicalNumber(this->value -Pn.value,this->u);
@@ -140,10 +140,10 @@ const PhysicalNumber PhysicalNumber::operator- (const PhysicalNumber& Pn) const{
          std::__throw_bad_exception();
 }
 
-PhysicalNumber& PhysicalNumber::operator+= (const PhysicalNumber& Pn){
+PhysicalNumber& PhysicalNumber::operator += (const PhysicalNumber& Pn){
     if(ifMatch(this->u, Pn.u) == true){
          if((int)(this->u) != (int)(Pn.u)) {
-             this->setValue(this->value + unitCast(this->u, Pn));
+             this->setValue(this->value + (double) unitCast(this->u, Pn));
              return *this;
              
          }
@@ -159,12 +159,12 @@ PhysicalNumber& PhysicalNumber::operator+= (const PhysicalNumber& Pn){
 PhysicalNumber& PhysicalNumber::operator-= (const PhysicalNumber& Pn){
      if(ifMatch(this->u, Pn.u) == true){
          if((int)(this->u) != (int)(Pn.u)) {
-             this->setValue(this->value - unitCast(this->u, Pn));
+             this->setValue(this->value - (double)unitCast(this->u, Pn));
              return *this;
              
          }
          else{
-              this->setValue(this->value-Pn.value);
+              this->setValue(this->value- Pn.value);
              return *this;
          } 
     }
@@ -174,7 +174,7 @@ PhysicalNumber& PhysicalNumber::operator-= (const PhysicalNumber& Pn){
 PhysicalNumber& PhysicalNumber::operator= (const PhysicalNumber& Pn){
          if(ifMatch(this->u, Pn.u) == true){
          if((int)(this->u) != (int)(Pn.u)) {
-             this->setValue(unitCast(this->u, Pn));
+             this->setValue((double)unitCast(this->u, Pn));
              return *this;
              
          }
