@@ -11,8 +11,24 @@ class PhysicalNumber{
  double value;
  Unit u;
 
+ //helping function
+ const bool ifMatch( const Unit u1, const Unit u2)const;
+ double unitCast( Unit u1, const PhysicalNumber Pn)const;
+ double timeConvert( Unit u1,const PhysicalNumber Pn)const;
+ double weightConvert( Unit u1,const PhysicalNumber Pn) const;
+ double lengthConvert( Unit u1,const PhysicalNumber Pn)const;
+
  public:
- //constractor
+ //settrs
+void setValue (double v){
+    this->value=v;
+}
+void setUnit (int u){
+     this->u=(Unit)u;
+}
+
+
+ //constractorenum class Unit{
  PhysicalNumber(double value, Unit u);
 
 //distractor

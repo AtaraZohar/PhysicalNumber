@@ -3,15 +3,15 @@
 namespace ariel{
 
 enum Unit{
-KM,
-M,
-CM,
-TON,
-KG,
-G,
-HOUR,
-SEC,
-MIN
+KM = 0,
+M=1,
+CM=2,
+TON=3,
+KG=4,
+G=5,
+HOUR=6,
+SEC=7,
+MIN=8
 };
 
 }
