@@ -65,4 +65,6 @@ friend ostream& operator<< (ostream& os, const PhysicalNumber& Pn);
 friend istream& operator>> (istream& is, PhysicalNumber& Pn);
 
 };
+ostream& operator<< (ostream& os, const PhysicalNumber& Pn);
+istream& operator>> (istream& is, PhysicalNumber& Pn);
 }
