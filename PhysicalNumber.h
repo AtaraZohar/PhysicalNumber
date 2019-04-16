@@ -19,14 +19,13 @@ class PhysicalNumber{
  double lengthConvert( Unit u1,const PhysicalNumber Pn)const;
 
  public:
- //settrs
+//settrs
 void setValue (double v){
     this->value=v;
 }
 void setUnit (int u){
      this->u=(Unit)u;
 }
-
 
  //constractorenum class Unit{
  PhysicalNumber(double value, Unit u);
@@ -42,7 +41,7 @@ PhysicalNumber& operator+= (const PhysicalNumber& Pn);
 PhysicalNumber& operator-= (const PhysicalNumber& Pn);
 PhysicalNumber& operator= (const PhysicalNumber& Pn);
 
-//פעולות אונריות
+//onarit operator 
 const PhysicalNumber operator+ () const;
 const PhysicalNumber operator- () const;
 
@@ -54,7 +53,7 @@ const bool operator<= (const PhysicalNumber& Pn) const;
 const bool operator>= (const PhysicalNumber& Pn) const;
 const bool operator!= (const PhysicalNumber& Pn) const;
 
-//prefix
+//prefix and posfix
 PhysicalNumber& operator++ ();
 PhysicalNumber& operator-- ();
 PhysicalNumber operator++(int i);
